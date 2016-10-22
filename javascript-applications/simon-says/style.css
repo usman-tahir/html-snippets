@@ -1,0 +1,44 @@
+@charset "utf-8";
+
+/* Global Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+#button-container {
+  width: 75%;
+  height: 200px;
+  margin: 20px auto;
+  text-align: center;
+  border: 1px solid lightgray;
+  border-radius: 25px;
+}
+
+#button-container > .game-button {
+  width: calc(100% / 6);
+  display: inline-block;
+  height: 150px;
+  border-radius: 50px;
+  vertical-align: top;
+  text-align: center;
+  margin: 2%;
+  padding: 20px;
+}
+
+#green {
+  background-color: #6c9;
+}
+
+#red {
+  background-color: #f66;
+}
+
+#blue {
+  background-color: #39f;
+}
+
+#yellow {
+  background-color: #ff6;
+}
