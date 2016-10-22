@@ -14,6 +14,7 @@
   text-align: center;
   border: 1px solid lightgray;
   border-radius: 25px;
+  background-color: whitesmoke;
 }
 
 #button-container > .game-button {
@@ -31,14 +32,30 @@
   background-color: #6c9;
 }
 
+#green:active {
+  background-color: #396;
+}
+
 #red {
   background-color: #f66;
+}
+
+#red:active {
+  background-color: #f33;
 }
 
 #blue {
   background-color: #39f;
 }
 
+#blue:active {
+  background-color: #33f;
+}
+
 #yellow {
   background-color: #ff6;
+}
+
+#yellow:active {
+  background-color: #ff3;
 }
