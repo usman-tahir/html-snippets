@@ -14,7 +14,7 @@
   text-align: center;
   border: 1px solid lightgray;
   border-radius: 25px;
-  background-color: whitesmoke;
+  background-color: slategray;
 }
 
 #button-container > .game-button {
@@ -26,36 +26,47 @@
   text-align: center;
   margin: 2%;
   padding: 20px;
+  text-indent: 100%;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 #green {
   background-color: #6c9;
+  color: #6c9;
 }
 
 #green:active {
   background-color: #396;
+  color: #396;
 }
 
 #red {
   background-color: #f66;
+  color: #f66;
 }
 
 #red:active {
   background-color: #f33;
+  color: #f33;
 }
 
 #blue {
   background-color: #39f;
+  color: #39f;
 }
 
 #blue:active {
   background-color: #33f;
+  color: #33f;
 }
 
 #yellow {
   background-color: #ff6;
+  color: #ff6;
 }
 
 #yellow:active {
   background-color: #ff3;
+  color: #ff3;
 }
