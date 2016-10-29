@@ -1,3 +1,4 @@
+@charset "utf-8";
 
 /* Descendant combinator */
 form h1 {
@@ -42,4 +43,17 @@ label ~ input {
 [rel~=friend]:hover {
   background: #ffeb3b;
   border-color: #ffc107;
+}
+
+/* Hyphenated Attribute Value combinator */
+[lang|="fr"] {
+  font-style: italic;
+}
+
+[lang|="fr"] q:before {
+  content: '\00AB'; /* Left angle quote */
+}
+
+[lang|="fr"] q:after {
+  content: '\00BB'; /* Right angle quote */
 }
