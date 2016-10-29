@@ -1,0 +1,45 @@
+
+/* Descendant combinator */
+form h1 {
+  color: #009;
+}
+
+/* Child combinator */
+form > p {
+  font-size: 22px;
+}
+
+/* Adjacent Sibling combinator */
+label + input {
+  display: block;
+  clear: both;
+}
+
+/* Universal and Type combinator */
+* + fieldset {
+  margin: 5em 0;
+}
+
+/* General Sibling Combinator */
+label ~ input {
+  display: block;
+}
+
+/* Attribute presence combinator */
+[rel~=friend] {
+  font-size: 2em;
+  background: #eee;
+  padding: 4px;
+  text-decoration: none;
+  border-bottom: 3px solid #ccc;
+}
+
+[rel~=friend]:link,
+[rel~=friend]:visited {
+  color: #34444c;
+}
+
+[rel~=friend]:hover {
+  background: #ffeb3b;
+  border-color: #ffc107;
+}
