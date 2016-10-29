@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>CSS Selectors Example</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <form method="get" action="#">
+      <h1>Buy Tickets to the Web Developer Gala</h1>
+      <p>
+        Tickets are $10 each. Dinner packages are an extra $5. 
+        All fields are required.
+      </p>
+      <fieldset>
+        <legend>Tickets and Add-ons</legend>
+        <p>
+          <label for="tickets">Number of Tickets</label>
+          <span class="help">Linit 8</span>
+          <input type="number" value="1" name="tickets" id="tickets" step="1" min="1" max="8">
+        </p>
+        <p>
+          <label for="dinner">Dinner Packages</label>
+          <span class="help">Serves 2</span>
+          <input type="number" value="1" name="dinner" id="dinner" step="1" min="1" max="8">
+        </p>
+      </fieldset>
+      <fieldset>
+        <legend>Payment</legend>
+        <p>
+          <label for="credit-card">Credit Card Number</label>
+          <span class="help">No spaces or dashes, please.</span>
+          <input type="text" name="credit-card" id="credit-card" placeholder="0000000000000000" maxlength="16" size="16">
+        </p>
+        <p>
+          <label for="expiration">Expiration Date</label>
+          <span class="help">
+            <abbr title="Two-digit month">MM</abbr>/
+            <abbr title="Four-digit year">YYYY</abbr>
+          </span>
+          <input type="text" name="expiration" id="expiration" placeholder="01/2017" maxlength="7" size="7">
+        </p>
+      </fieldset>
+      <fieldset>
+        <legend>Billing Address</legend>
+        <p>
+          <label for="name">Name</label>
+          <input type="text" name="name" id="name" placeholder="ex: John Q. Public" size="40">
+        </p>
+        <p>
+          <label for="street-address">Street Address</label>
+          <input type="text" name="street-address" id="street-address" placeholder="ex: 12345 Main Street, Apt 123" size="40">
+        </p>
+        <p>
+          <label for="city">City</label>
+          <input type="text" name="city" id="city" placeholder="ex: Anytown">
+        </p>
+        <p>
+          <label for="state">State</label>
+          <input type="text" name="state" id="state" placeholder="ex: CA" maxlength="2" pattern="[A-Z]{2}" size="2">
+        </p>
+        <p>
+          <label for="zipcode">ZIP</label>
+          <input type="text" name="zipcode" id="zipcode" placeholder="ex: 12345" maxlength="5" pattern="[0-9]{5}" size="5">
+        </p>
+      </fieldset>
+      <br>
+      <button type="submit">Buy Tickets</button>
+    </form>
+  </body>
+</html>
