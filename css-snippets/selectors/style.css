@@ -57,3 +57,32 @@ label ~ input {
 [lang|="fr"] q:after {
   content: '\00BB'; /* Right angle quote */
 }
+
+[class|="article-promo"] {
+  border-top: 5px solid #4caf50;
+  color: #555;
+  line-height: 1.3;
+  padding-top: 0.5em;
+}
+
+[class|="article-promo"] h3 {
+  color: #000;
+  font-size: 1.2em;
+  margin: 0;
+}
+
+[class|="article-promo"] p {
+  margin: 0 0 1em;
+}
+
+[class|="article-promo-entertainment"] {
+  border-top-color: deeppink;
+}
+
+[class|="article-promo-sports"] {
+  border-top-color: royalblue;
+}
+
+[class|="article-promo-business"] {
+  border-top-color: mediumpurple;
+}
