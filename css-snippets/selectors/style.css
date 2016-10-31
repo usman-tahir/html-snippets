@@ -86,3 +86,44 @@ label ~ input {
 [class|="article-promo-business"] {
   border-top-color: mediumpurple;
 }
+
+/* Pseudo-element example: ::before and ::after */
+.help-text::before {
+  content: '(';
+}
+
+.help-text::after {
+  content: ')';
+}
+
+/* Initial capital example */
+#paragraph-example p::first-letter {
+  font-family: serif;
+  font-weight: bold;
+  font-size: 3em;
+  font-style: italic;
+  /*font: bold italic 3em / 0.5 serif;*/ /* Mitigate line height of first line */
+  color: #3f51b5;
+}
+
+#paragraph-example p::first-line {
+  font: bold 1.5em serif;
+  font-style: italic;
+  color: #673ab7;
+}
+
+/* Selection (highlighting) example */
+/*
+  Selection works with the following properties:
+  color
+  background-color
+  cursor
+  outline (and its expanded properties)
+  text-decoration (and related properties)
+  text-emphasis-color
+  text-shadow
+*/
+p::selection {
+  background: #9f0;
+  color: #600;
+}
