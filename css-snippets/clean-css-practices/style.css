@@ -97,3 +97,42 @@ p {
   border-color: #fc0;
 }
 */
+
+/* 
+  Avoid using id selectors; rules that use id
+  selectors are hard repurpose
+*/
+
+/* Instead of the following: */
+#sidebar {
+  float: right;
+  width: 25%;
+  background: #eee;
+}
+
+#sidebar.sports {
+  background: #d5e3ff;
+}
+
+#sidebar.local {
+  background: #fcc;
+}
+
+.local {
+  background: #fcc;
+}
+
+/* Use: */
+.sidebar {
+  float: right;
+  width: 25%;
+  background: #eee;
+}
+
+.sports {
+  background: #d5e3ff;
+}
+
+.local {
+  background: #fcc;
+}
