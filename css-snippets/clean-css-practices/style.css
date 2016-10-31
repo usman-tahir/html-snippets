@@ -58,15 +58,19 @@ button {
   precedence over more generic-type selector rules.
 */
 /* Specificity of 0, 0, 1 */
+/*
 p {
   color: #222;
   font-size: 12px;
 }
+*/
 
 /* Specificity of 0, 1, 0 */
+/*
 .error {
   color: #a00;
 }
+*/
 
 /* Don't chain classes */
 .message {
@@ -134,5 +138,24 @@ p {
 }
 
 .local {
-  background: #fcc;
+  background: #fcadc;
+}
+
+/* Use semantic class names */
+/* What not to do: */
+.red-text {
+  color: red;
+}
+
+.blue-text {
+  color: blue;
+}
+
+/* Preferred: */
+.message-error {
+  color: red;
+}
+
+.message-info {
+  color: blue;
 }
