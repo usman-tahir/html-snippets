@@ -51,3 +51,49 @@ button {
   padding: 5px;
   border-radius: 100px;
 }
+
+/* 
+  Avoid overly specific selectors. When you add a class
+  name to an element, the rules for the selector take
+  precedence over more generic-type selector rules.
+*/
+/* Specificity of 0, 0, 1 */
+p {
+  color: #222;
+  font-size: 12px;
+}
+
+/* Specificity of 0, 1, 0 */
+.error {
+  color: #a00;
+}
+
+/* Don't chain classes */
+.message {
+  background: #eee;
+  border: 2px solid #333;
+  border-radius: 1em;
+  padding: 1em;
+}
+
+/* Problematic */
+/*
+.message.error {
+  background: #f30;
+  color: #fff;
+}
+*/
+
+/* Preferred (no chaining) */
+.error {
+  background: #f30;
+  color: #fff;
+}
+
+/* Yello error message */
+/*
+.error {
+  background: #ff0;
+  border-color: #fc0;
+}
+*/
