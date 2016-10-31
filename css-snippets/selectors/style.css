@@ -127,3 +127,34 @@ p::selection {
   background: #9f0;
   color: #600;
 }
+
+/* Negation selector example */
+label:not(.label-radio) {
+  font-weight: bold;
+  display: block;
+}
+
+/* n-th child example */
+#fruits li:first-child {
+  color: #e91e63;
+}
+
+#fruits li:last-child {
+  color: #4caf50;
+}
+
+#vegetables li:nth-child(even) {
+  color: deepskyblue;
+}
+
+#vegetables li:nth-child(odd) {
+  color: limegreen;
+}
+
+#cars li:only-child {
+  color: red;
+}
+
+#boats li:only-child {
+  color: blue;
+}
