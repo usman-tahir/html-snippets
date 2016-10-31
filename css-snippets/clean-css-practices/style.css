@@ -1,0 +1,31 @@
+@charset "utf-8";
+
+/* 
+  Avoid global selectors like the 'button' example below.
+  Global selectors include the universal selector (*),
+  element slectors such as 'p', 'button', and 'h1',
+  and attribute selectors such as [type=checkbox].
+*/
+button {
+  background: #ffc107;
+  border: 1px outset #ff9800;
+  display: block;
+  font: bold 16px / 1.5 sans-serif;
+  margin: 1rem auto;
+  width: 50%;
+  padding: 0.5rem;
+}
+
+.close {
+  background: #e00;
+  border: 2px solid #000;
+  color: #fff;
+  display: inline-block;
+  margin: 0;
+  font-size: 12px;
+  font-weight: normal;
+  line-height: 1;
+  padding: 5px;
+  border-radius: 100px;
+  width: auto;
+}
