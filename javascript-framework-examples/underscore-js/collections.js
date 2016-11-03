@@ -58,4 +58,57 @@
   
   // contains
   console.log("contains 6:", _.contains([1, 2, 3, 4, 5], 6));
+  
+  // invoke
+  console.log("sorted:", _.invoke([[3, 2, 1], [6, 5, 4]], 'sort'));
+  
+  // pluck
+  console.log("stooge names:", _.pluck([{"name": "moe", "age": 40}, {"name": "larry", "age": 50}, {"name": "curly", "age": 60}], "name"));
+  console.log("stooge ages:", _.pluck([{"name": "moe", "age": 40}, {"name": "larry", "age": 50}, {"name": "curly", "age": 60}], "age"));
+  
+  // max
+  console.log("max:", _.max([5, 1, 3, 4, 2]));
+  
+  // min
+  console.log("min:", _.min([4, 1, 3, 2, 5]));
+  
+  // sortBy
+  function sortBySin(number) {
+    return Math.sin(number);
+  }
+  
+  console.log("sorted by Math.sin:", _.sortBy([1, 2, 3, 4, 5], sortBySin));
+  
+  // groupBy
+  function getFloor(number) {
+    return Math.floor(number);
+  }
+  
+  console.log("group by Math.floor:", _.groupBy([1.2, 2.2, 2.4], getFloor));
+  
+  // indexBy
+  console.log("index stooges by age:", _.indexBy([{"name": "moe", "age": 40}, {"name": "larry", "age": 50}, {"name": "curly", "age": 60}], "age"));
+  
+  // countBy
+  function semanticEvenOddSort(number) {
+    return (number % 2 === 0 ? "even" : "odd");
+  }
+  
+  console.log("counted by parity:", _.countBy([1, 2, 3, 4, 5, 6], semanticEvenOddSort));
+  
+  // shuffle
+  console.log("shuffled:", _.shuffle([1, 2, 3, 4, 5, 6]));
+  
+  // sample
+  console.log("sample of 1:", _.sample([1, 2, 3, 4, 5], 1));
+  console.log("sample of 3:", _.sample([1, 2, 3, 4, 5], 3));
+  
+  // toArray
+  console.log("toArray:", function(){ return _.toArray(arguments).slice(1); }(1, 2, 3, 4));
+  
+  // size
+  console.log("size:", _.size([1, 2, 3, 4]));
+  
+  // partition
+  console.log("partition on parity:", _.partition([1, 2, 3, 4, 5, 6], isOdd));
 }());
