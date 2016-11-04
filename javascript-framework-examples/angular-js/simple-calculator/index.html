@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en" ng-app="myApp">
+  <head>
+    <meta charset="utf-8">
+    <title>Simple Calculator</title>
+  </head>
+  <body ng-controller="CalculatorController">
+    <!-- Select the operation to perform on the numbers -->
+    <label>Operation</label>
+    <select ng-model="operation">
+      <option value="add">add</option>
+      <option value="subtract">subtract</option>
+      <option value="multiply">multiply</option>
+      <option value="divide">divide</option>
+    </select>
+    &nbsp;
+    <!-- Enter the first number -->
+    <label>Number one</label>
+    <input type="number" ng-model="numberOne">
+    &nbsp;
+    <!-- Enter the second number -->
+    <label>Number two</label>
+    <input type="number" ng-model="numberTwo">
+    <br><br>
+    
+    <!-- Result output -->
+    <span ng->{{result()}}</span>
+    
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.min.js"></script>
+    <script src="app.js"></script>
+    <script src="controllers.js"></script>
+  </body>
+</html>
