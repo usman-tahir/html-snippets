@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="en" ng-app="myApp">
+  <head>
+    <meta charset="utf-8">
+    <title>Simple Time and Greeting</title>
+  </head>
+  <body ng-controller="SimpleDate">
+    <span>{{greeting}}, User! It is currently: {{date | date: 'medium'}}</span>
+    <br><br>
+    <button ng-click="getRandomHelloMessage()">Random Hello Message</button>
+  </body>
+  
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.min.js"></script>
+  <script src="app.js"></script>
+  <script src="controllers.js"></script>
+</html>
