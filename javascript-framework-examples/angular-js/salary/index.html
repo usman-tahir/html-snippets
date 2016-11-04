@@ -4,13 +4,17 @@
     <meta charset="utf-8">
     <title>My First AngularJS App</title>
   </head>
-  <body ng-int="salary=0;percentage=0">
+  <body ng-init="salary=0;percentage=0">
+    
+    <!-- Enter the salary amount -->
     <label>Your salary?</label>
     <input type="text" ng-model="salary"><br>
     
+    <!-- Enter the investment amount for gadgets -->
     <label>How much should you invest in gadgets?</label>
     <input type="text" ng-model="percentage">%<br>
     
+    <!-- Compute the total based on salary -->
     <label>The amount you should spend on gadgets is:</label>
     <span>{{salary * percentage * 0.01}}</span>
     
