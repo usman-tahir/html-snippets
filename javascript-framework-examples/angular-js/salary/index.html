@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en" ng-app>
+  <head>
+    <meta charset="utf-8">
+    <title>My First AngularJS App</title>
+  </head>
+  <body ng-int="salary=0;percentage=0">
+    <label>Your salary?</label>
+    <input type="text" ng-model="salary"><br>
+    
+    <label>How much should you invest in gadgets?</label>
+    <input type="text" ng-model="percentage">%<br>
+    
+    <label>The amount you should spend on gadgets is:</label>
+    <span>{{salary * percentage * 0.01}}</span>
+    
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.min.js"></script>
+  </body>
+</html>
