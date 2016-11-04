@@ -1,10 +1,10 @@
 <!doctype html>
-<html lang="en" ng-app>
+<html lang="en" ng-app="myApp">
   <head>
     <meta charset="utf-8">
-    <title>My First AngularJS App</title>
+    <title>Finance Meter</title>
   </head>
-  <body ng-init="salary=0;percentage=0">
+  <body ng-controller="FinanceController">
     
     <!-- Enter the salary amount -->
     <label>Your salary?</label>
@@ -16,8 +16,10 @@
     
     <!-- Compute the total based on salary -->
     <label>The amount you should spend on gadgets is:</label>
-    <span>{{salary * percentage * 0.01}}</span>
+    <span>{{result()}}</span>
     
     <script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.min.js"></script>
+    <script src="app.js"></script>
+    <script src="controllers.js"></script>
   </body>
 </html>
