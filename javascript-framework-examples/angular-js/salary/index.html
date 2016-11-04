@@ -16,7 +16,8 @@
     
     <!-- Compute the total based on salary -->
     <label>The amount you should spend on gadgets is:</label>
-    <span>{{result()}}</span>
+    <!-- Apply the currency filter for formatting -->
+    <span>{{result() | currency}}</span>
     
     <script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.min.js"></script>
     <script src="app.js"></script>
