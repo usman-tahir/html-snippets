@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Example Three</title>
+  </head>
+  <body>
+    <div ng-app="myApp" w3-test-directive></div>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.min.js"></script>
+    <script>
+      var app = angular.module("myApp", []);
+      app.directive("w3TestDirective", function () {
+        return {
+          template: "Created by an AngularJS directive"
+        };
+      });
+    </script>
+  </body>
+</html>
