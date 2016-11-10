@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Example Nine</title>
+  </head>
+  <body ng-app="myApp" ng-controller="CustomController">
+    <h1>{{myHeader}}</h1>
+    <p>The current location (URL) is: {{myURL}}</p>
+    <p>The current time is: {{theTime}}</p>
+    <p>Custom service implementation: {{myNumber}} in hex is: {{hexNumber}}</p>
+    <p>Custom filter with the custom service:</p>
+    <ul>
+      <li ng-repeat="n in numbers">Decimal: {{n}}&nbsp;Hex: {{n | hexfilter}}</li>
+    </ul>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.min.js"></script>
+    <script>
+      var application = angular.module("myApp", []);
+      
+      // Custom service that converts a number to a hexadecimal representation
+      application.service("convertToHex", function() {
+        this.myFunction = function (x) {
+          return x.toString(16);
+        }
+      });
+      
+      // Use the custom service inside a filter
+      application.filter("hexfilter", ["convertToHex", function (convertToHex) {
+        return function (x) {
+          return convertToHex.myFunction(x);
+        }
+      }]);
+      
+      application.controller("CustomController", function ($scope, $location, $timeout, $interval, convertToHex) {
+        // Get the URL of the current page, and pass it to the myURL variable
+        $scope.myURL = $location.absUrl();
+        
+        // Set the initial header for the h1 tag
+        $scope.myHeader = "Hello World!";
+        
+        // Set the h1 header to 'How are you today?' after a timeout / delay of 2 seconds
+        $timeout(function () {
+          $scope.myHeader = "How are you today?";
+        }, 2000);
+        
+        // Get the current time
+        $scope.theTime = new Date().toLocaleTimeString();
+        $interval(function () {
+          $scope.theTime = new Date().toLocaleTimeString();
+        }, 1000);
+        
+        // Use the custom service built below
+        $scope.myNumber = 1234;
+        $scope.hexNumber = convertToHex.myFunction($scope.myNumber);
+        
+        $scope.numbers = [129, 391, 481, 1039, 942, 183, 842];
+      });
+    </script>
+  </body>
+</html>
