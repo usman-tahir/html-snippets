@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Example Eight</title>
+    <style>
+      li {
+        list-style: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div ng-app="myApp" ng-controller="FilterController">
+      <p>Original String: {{string}}</p>
+      <p>String with 'uppercase' filter: {{string | uppercase}}</p>
+      <br>
+      <p>Original String: {{string | uppercase}}</p>
+      <p>String with 'lowercase' filter: {{string | lowercase}}</p>
+      <br>
+      <p>Order by grade:</p>
+      <ul>
+        <li ng-repeat="e in elements | orderBy: 'grade'">
+          Name:&nbsp;{{e.name}}&nbsp;Grade:&nbsp;{{e.grade}}&nbsp;State:&nbsp;{{e.state}}
+        </li>
+      </ul>
+      <br>
+      <p>Order by name:</p>
+      <ul>
+        <li ng-repeat="e in elements | orderBy: 'name'">
+          Name:&nbsp;{{e.name}}&nbsp;Grade:&nbsp;{{e.grade}}&nbsp;State:&nbsp;{{e.state}}
+        </li>
+      </ul>
+      <br>
+      <p>Order by state:</p>
+      <ul>
+        <li ng-repeat="e in elements | orderBy: 'state'">
+          Name:&nbsp;{{e.name}}&nbsp;Grade:&nbsp;{{e.grade}}&nbsp;State:&nbsp;{{e.state}}
+        </li>
+      </ul>
+      <br>
+      <p>Before 'currency' filter: {{price}}</p>
+      <p>After 'currency' filter: {{price | currency}}</p>
+      <br>
+      <p>Filter elements by states starting with V:</p>
+      <ul>
+        <li ng-repeat="e in elements | filter: 'V'">
+          {{e.state}}
+        </li>
+      </ul>
+      <br>
+      <p>Filter array by input:</p>
+      <input type="text" ng-model="test">
+      <ul>
+        <li ng-repeat="n in names | filter: test">
+          {{n}}
+        </li>
+      </ul>
+    </div>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.min.js"></script>
+    <script>
+      var application = angular.module("myApp", []);
+      application.controller("FilterController", function ($scope) {
+        $scope.string = "hello world";
+        $scope.elements = [
+          {name: "John", grade: 98, state: "VA"},
+          {name: "Sally", grade: 83, state: "WI"},
+          {name: "Doris", grade: 100, state: "VT"},
+          {name: "Dennis", grade: 91, state: "CA"},
+          {name: "James", grade: 76, state: "CA"}
+        ];
+        $scope.price = 123.45;
+        $scope.names = [
+          "Allan", "Jerry", "Henry", "Dylan", "Alex", "Robert", "Chris", "Sarah", 
+          "Janice", "Mike", "Terry", "Zena", "Mark", "Xander", "Quentin", "Mara"
+        ];
+      });
+    </script>
+  </body>
+</html>
