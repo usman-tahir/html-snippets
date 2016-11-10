@@ -7,6 +7,10 @@
       li {
         list-style: none;
       }
+      
+      table {
+        border: 1px solid black;
+      }
     </style>
   </head>
   <body>
@@ -55,6 +59,29 @@
           {{n}}
         </li>
       </ul>
+      <br>
+      <p>Sortable table (click on headers to sort by them):</p>
+      <table>
+        <tr>
+          <th ng-click="orderBy('name')">Name</th>
+          <th ng-click="orderBy('grade')">Grade</th>
+          <th ng-click="orderBy('state')">State</th>
+        </tr>
+        <tr ng-repeat="e in elements | orderBy: myOrder">
+          <td>{{e.name}}</td>
+          <td>{{e.grade}}</td>
+          <td>{{e.state}}</td>
+        </tr>
+      </table>
+      <br>
+      <p>Colors without the custom 'titlecase' filter:</p>
+      <ul>
+        <li ng-repeat="c in colors">{{c}}</li>
+      </ul>
+      <p>Colors with the custom 'titlecase' filter:</p>
+      <ul>
+        <li ng-repeat="c in colors">{{c | titlecase}}</li>
+      </ul>
     </div>
     <script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.min.js"></script>
     <script>
@@ -73,6 +100,29 @@
           "Allan", "Jerry", "Henry", "Dylan", "Alex", "Robert", "Chris", "Sarah", 
           "Janice", "Mike", "Terry", "Zena", "Mark", "Xander", "Quentin", "Mara"
         ];
+        
+        $scope.colors = ["red", "green", "blue", "yellow"];
+        
+        $scope.orderBy = function (x) {
+          $scope.myOrder = x;
+        }
+      });
+      
+      application.filter("titlecase", function () {
+        return function (x) {
+          var output = "",
+            current,
+            i;
+          
+          for (i = 0; i < x.length; i += 1) {
+            current = x[i];
+            if (i === 0) {
+              current = current.toUpperCase();
+            }
+            output += current;
+          }
+          return output;
+        }
       });
     </script>
   </body>
