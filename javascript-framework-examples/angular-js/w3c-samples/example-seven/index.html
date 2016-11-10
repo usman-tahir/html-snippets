@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Example Seven</title>
+  </head>
+  <body ng-app="myApp">
+    <p>The rootScope's favorite color:</p>
+    <h1>{{color}}</h1>
+    
+    <div ng-controller="myCtrl">
+      <p>The scope of the controller's favorite color:</p>
+      <h1>{{color}}</h1>
+    </div>
+    
+    <p>The rootScope's favorite color is still:</p>
+    <h1>{{color}}</h1>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.min.js"></script>
+    <script>
+      var application = angular.module("myApp", []);
+      
+      application.run(function ($rootScope) {
+        $rootScope.color = "blue";
+      });
+      
+      application.controller("myCtrl", function ($scope) {
+        $scope.color = "red";
+      });
+    </script>
+  </body>
+</html>
