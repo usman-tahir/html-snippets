@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Example Eleven</title>
+    <style>
+      table, th, td {
+        border: 1px solid gray;
+        border-collapse: collapse;
+        padding: 5px;
+      }
+      
+      table tr:nth-child(odd) {
+        background-color: #f1f1f1;
+      }
+      
+      table tr:nth-child(even) {
+        background-color: #fff;
+      }
+    </style>
+  </head>
+  <body>
+    <div ng-app="TableApplication" ng-controller="CustomersController">
+      <table>
+        <tr ng-repeat="n in names">
+          <td>{{n.Name}}</td>
+          <td>{{n.Country}}</td>
+        </tr>
+      </table>
+    </div>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.min.js"></script>
+    <script>
+      var application = angular.module("TableApplication", []);
+      application.controller("CustomersController", function ($scope, $http) {
+        $http.get("http://www.w3schools.com/angular/customers.php")
+          .then(function (response) {
+          $scope.names = response.data.records;
+        });
+      });
+    </script>
+  </body>
+</html>

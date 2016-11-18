@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Example Ten</title>
+  </head>
+  <body>
+    <div ng-app="MyApplication" ng-controller="ImagesController">
+      <ul>
+        <li ng-repeat="c in customers">{{c.Name}}&nbsp;({{c.City}}, {{c.Country}})</li>
+      </ul>
+    </div>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.min.js"></script>
+    <script>
+      var application = angular.module("MyApplication", []);
+      application.controller("ImagesController", function ($scope, $http) {
+        $http.get("http://www.w3schools.com/angular/customers.php").then(function (response) {
+          $scope.customers = response.data.records;
+        });
+      });
+    </script>
+  </body>
+</html>
