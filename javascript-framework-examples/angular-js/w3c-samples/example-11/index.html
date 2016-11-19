@@ -23,6 +23,7 @@
     <div ng-app="TableApplication" ng-controller="CustomersController">
       <table>
         <tr ng-repeat="n in names">
+          <td>{{$index + 1}}</td>
           <td>{{n.Name}}</td>
           <td>{{n.Country}}</td>
         </tr>

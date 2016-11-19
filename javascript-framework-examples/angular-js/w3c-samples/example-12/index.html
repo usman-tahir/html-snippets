@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Example Twelve</title>
+  </head>
+  <body>
+    <div ng-app="FormApplication" ng-controller="InputController">
+      <!-- ng-options was made specifically for dropdown lists for options -->
+      <select ng-model="selectedOption" ng-options="o for o in options"></select>
+      <h1>You selected: {{selectedOption}}</h1>
+      <br>
+      <select ng-model="selectedNumeral" ng-options="x for (x, y) in romanNumerals"></select>
+      <h1>You selected: {{selectedNumeral}}</h1>
+    </div>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.min.js"></script>
+    <script>
+      var application = angular.module("FormApplication", []);
+      application.controller("InputController", function($scope) {
+        $scope.selectedOption = "None";
+        $scope.defaultOption = "Select";
+        $scope.options = ["Red", "Green", "Blue", "Yellow"];
+        
+      // Example with object options
+      $scope.romanNumerals = {
+        i: "one",
+        ii: "two",
+        iii: "three",
+        iv: "four",
+        v: "five"
+      }
+      
+      $scope.selectedNumeral = "None";
+      });
+    </script>
+  </body>
+</html>
