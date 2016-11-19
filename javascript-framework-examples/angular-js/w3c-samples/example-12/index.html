@@ -12,6 +12,30 @@
       <br>
       <select ng-model="selectedNumeral" ng-options="x for (x, y) in romanNumerals"></select>
       <h1>You selected: {{selectedNumeral}}</h1>
+      
+      <form>
+        <label>Pick a topic:</label><br>
+        <input type="radio" ng-model="myColor" value="red">Red
+        <input type="radio" ng-model="myColor" value="green">Green
+        <input type="radio" ng-model="myColor" value="blue">Blue
+        <input type="radio" ng-model="myColor" value="yellow">Yellow
+      </form>
+      <h3>The color you chose was: {{myColor}}</h3>
+      <br>
+      <form novalidate>
+        <label>First Name</label><br>
+        <input type="text" ng-model="user.firstName"><br>
+        <label>Last Name</label><br>
+        <input type="text" ng-model="user.lastName">
+        <br><br>
+        <button ng-click="reset()">Reset</button>
+      </form>
+      <p>
+        form = {{user}}
+      </p>
+      <p>
+        master = {{master}}
+      </p>
     </div>
     <script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.min.js"></script>
     <script>
@@ -21,16 +45,26 @@
         $scope.defaultOption = "Select";
         $scope.options = ["Red", "Green", "Blue", "Yellow"];
         
-      // Example with object options
-      $scope.romanNumerals = {
-        i: "one",
-        ii: "two",
-        iii: "three",
-        iv: "four",
-        v: "five"
-      }
-      
-      $scope.selectedNumeral = "None";
+        // Example with object options
+        $scope.romanNumerals = {
+          i: "one",
+          ii: "two",
+          iii: "three",
+          iv: "four",
+          v: "five"
+        }
+
+        $scope.myColor = "None";
+        $scope.selectedNumeral = "None";
+        
+        $scope.master = {
+          firstName: "John",
+          lastName: "Doe"
+        }
+        
+        $scope.reset = function () {
+          $scope.user = angular.copy($scope.master);
+        };
       });
     </script>
   </body>
