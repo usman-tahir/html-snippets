@@ -17,15 +17,21 @@
       </p>
       <p ng-show="false">This text is not visible</p>
       <p ng-show="true">This text is visible</p>
+      <p ng-show="value >= 12">This text is visible because $scope.value = {{value}}</p>
     </div>
     <script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.min.js"></script>
     <script>
       var application = angular.module("MyApplication", []);
       application.controller("DisabledController", function ($scope) {
         $scope.mySwitch = false;
+        
+        // Toggle the boolean that enables and disables the button
         $scope.mySwitchToggle = function () {
           $scope.mySwitch = !$scope.mySwitch;
         };
+        
+        // Paragraph ng-show example
+        $scope.value = 12;
       });
     </script>
   </body>
