@@ -36,6 +36,19 @@
       <p>
         master = {{master}}
       </p>
+      <br>
+      <form name="myForm">
+        <label>Input is valid when non-empty</label>
+        <br>
+        <input type="text" name="myInput" ng-model="myInput" required><br>
+        <label>Input is invalid when touched and left empty</label>
+        <br>
+        <input type="text" name="myRequiredInput" ng-model="myRequiredInput" required>
+        <span ng-show="myForm.myRequiredInput.$touched && myForm.myRequiredInput.$invalid">The name is required.</span>
+      </form>
+      <p>
+        The input's valid state is: <strong>{{myForm.myInput.$valid}}</strong>
+      </p>
     </div>
     <script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.min.js"></script>
     <script>
