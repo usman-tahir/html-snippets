@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Example 13</title>
+  </head>
+  <body>
+    <div ng-app="MyApplication" ng-controller="DisabledController">
+      <p>
+        <button ng-disabled="mySwitch">Click here</button>
+      </p>
+      <p>
+        <input type="checkbox" ng-model="mySwitch" ng-click="mySwitchToggle">Toggle
+      </p>
+      <p>
+        The button is disabled: {{mySwitch}}
+      </p>
+      <p ng-show="false">This text is not visible</p>
+      <p ng-show="true">This text is visible</p>
+    </div>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.min.js"></script>
+    <script>
+      var application = angular.module("MyApplication", []);
+      application.controller("DisabledController", function ($scope) {
+        $scope.mySwitch = false;
+        $scope.mySwitchToggle = function () {
+          $scope.mySwitch = !$scope.mySwitch;
+        };
+      });
+    </script>
+  </body>
+</html>
