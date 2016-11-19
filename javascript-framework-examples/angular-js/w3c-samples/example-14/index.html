@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Example 14</title>
+    <style>
+      .box {
+        border: 1px dashed black;
+        width: 200px;
+        height: 200px;
+      }
+    </style>
+  </head>
+  <body>
+    <div ng-app="MyApplication" ng-controller="EventController">
+      <h1 ng-mousemove="incrementCount()">Hover over this text to increment the counter</h1>
+      <h3>Counter: {{count}}</h3>
+      <br>
+      <h3>Alternate implementation of counter increment</h3>
+      <button ng-click="incrementCounter()">Increment counter</button>
+      <h3>Counter: {{counter}}</h3>
+      <br>
+      <div class="box" ng-mousemove="coordinateLocater($event)"></div>
+      <h3>Your coordinate position in the box: ({{x + ', ' + y}})</h3>
+    </div>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.min.js"></script>
+    <script>
+      var application = angular.module("MyApplication", []);
+      application.controller("EventController", function ($scope) {
+        $scope.count = 0;
+        $scope.counter = 0;
+        
+        $scope.incrementCounter = function () {
+          $scope.counter += 1;
+        };
+        
+        $scope.incrementCount = function() {
+          $scope.count += 1;
+        };
+        
+        $scope.x = "x";
+        $scope.y = "y";
+        $scope.coordinateLocater = function (myEvent) {
+          $scope.x = myEvent.clientX;
+          $scope.y = myEvent.clientY;
+        };
+      });
+    </script>
+  </body>
+</html>
