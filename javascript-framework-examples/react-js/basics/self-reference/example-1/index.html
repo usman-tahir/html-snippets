@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Basic ReactJS Example</title>
+    <link rel="stylesheet" href="../../examples/shared/css/base.css">
+  </head>
+  <body>
+    <h1>Basic ReactJS Example</h1>
+    <div id="container"></div>
+    
+    <!-- Scripts for ReactJS -->
+    <script src="../../build/react.min.js"></script>
+    <script src="../../build/react-dom.min.js"></script>
+    
+    <!-- Custom script for the time counter -->
+    <script>
+      /**
+        Sets up an application that can be used to create a running timer, to display in the HTML.
+        
+        elapsed: the amount of time that has elapsed, based on when the timer started
+        
+        seconds: a representation of the amount of seconds that have elapsed from when the page has been loaded or refreshed
+        
+        message: the message that is output to the HTML
+      */
+      var exampleApplication = React.createClass({
+        render: function() {
+          var elapsed = Math.round(this.props.elapsed / 100),
+            seconds = (elapsed / 10 + (elapsed % 10 ? '' : '.0')),
+          message = 'ReactJS has been running for ' + seconds + ' seconds.';
+          return React.DOM.p(null, message);
+        }
+      });
+      
+      /**
+        React.createFactory is called here, instead of directly calling exampleApplication({...})
+      */
+      var ExampleApplicationFactory = React.createFactory(exampleApplication),
+        start = new Date().getTime();
+      
+      /**
+        Create the interval at which the application will run, and thereby update the clock counter
+        
+        start (above): begins the timer update process by using the current time; start is subtracted from a call to Date().getTime() so that it can incrementally update the clock counter
+        
+        the result of the rendering by ReactDOM is pushed to the html element with an id of 'container'
+      */
+      setInterval(function () {
+        ReactDOM.render(
+          ExampleApplicationFactory({elapsed: new Date().getTime() - start}),
+          document.getElementById('container')
+        );
+      }, 50);
+    </script>
+  </body>
+</html>
