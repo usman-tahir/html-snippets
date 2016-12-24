@@ -114,3 +114,4 @@ console.log("Total sales after 6% tax: $" + totalAfterSalesTax);
 var words = ["apple", "banana", "cantaloupe"],
   filteredWords = words.filter(function(word) { return word.length >= 6});
 console.log(filteredWords);
+
