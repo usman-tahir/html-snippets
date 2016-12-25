@@ -1,25 +1,33 @@
 
-alert("Welcome to Quiz Ninja.");
+// Quiz Object
+var quiz = {
+  name: "Superhero Name Quiz",
+  description: "How many superheroes can you name?",
+  question: "Who is ",
+  questions: [
+    {
+      question: "Superman?", answer: "Clark Kent"
+    },
+    {
+      question: "Batman?", answer: "Bruce Wayne"
+    },
+    {
+      question: "Wonder Woman?", answer: "Dianna Prince"
+    }
+  ]
+},
+  score = 0;
 
-// Array of quiz questions
-var quiz = [
-  ["What is Superman's real name?", "Clark Kent"],
-  ["What is Wonderwoman's real name?", "Diana Prince"],
-  ["What is Batman's real name?", "Bruce Wayne"]
-  ],
-  score = 0,
-  max = quiz.length,
-  i;
-
+alert(quiz.description);
 play(quiz);
 
 function play(quiz) {
   // Main game loop
   var i,
-    max = quiz.length;
+    max = quiz.questions.length;
   
   for (i = 0; i < max; i += 1) {
-    question = quiz[i][0];
+    question = quiz.question + quiz.questions[i].question;
     answer = ask(question);
     check(answer);
   }
@@ -30,7 +38,7 @@ function play(quiz) {
   }
 
   function check(answer) {
-    if (answer === quiz[i][1]) {
+    if (answer === quiz.questions[i].answer) {
       alert("Correct!");
       score += 1;
     } else {
