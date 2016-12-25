@@ -15,3 +15,26 @@ header {
   text-transform: uppercase;
   padding-top: 15px;
 }
+
+section p {
+  font: bold 24px/150% Arial, Helvetica, sans-serif;
+  background: #ccc;
+  border: #999 2px solid;
+  color: #666;
+  text-align: center;
+  padding: 10px;
+  margin: 10px;
+  width: 300px;
+}
+
+.correct {
+  background: #0c0;
+  border: #090 2px solid;
+  color: #060;
+}
+
+.incorrect {
+  background: #c00;
+  border: #900 2px solid;
+  color: #600;
+}

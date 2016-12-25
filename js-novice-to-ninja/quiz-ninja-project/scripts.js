@@ -15,38 +15,59 @@ var quiz = {
       question: "Wonder Woman?", answer: "Dianna Prince"
     }
   ]
-},
-  score = 0;
+};
 
-alert(quiz.description);
+/*
+  DOM References
+*/
+var $questionContainer = document.getElementById("question"),
+  $scoreContainer = document.getElementById("score"),
+  $feedbackContainer = document.getElementById("feedback");
+
+// alert(quiz.description);
 play(quiz);
 
 function play(quiz) {
-  // Main game loop
-  var i,
-    max = quiz.questions.length;
   
-  for (i = 0; i < max; i += 1) {
+  var score = 0;
+  
+  function update(element, content, appliedClass) {
+    var p = element.firstChild || document.createElement("p");
+    console.log(p);
+    p.textContent = content;
+    element.appendChild(p);
+    if (appliedClass) {
+      p.className = appliedClass;
+    }
+  }
+  
+  function ask(question) {
+    update($questionContainer, quiz.question + question);
+    return prompt("Enter your answer:");
+  }
+
+  function check(answer) {
+    if (answer === quiz.questions[i].answer) {
+      update($feedbackContainer, "Correct!", "correct");
+      score += 1;
+      update($scoreContainer, score);
+    } else {
+      update($feedbackContainer, "Incorrect!", "incorrect");
+    }
+  }
+
+  function gameOver() {
+    // alert("You scored a " + score + " out of " + max + "!");
+    update($questionContainer, "Game Over, you scored " + score + " points.");
+  }
+  
+  update($scoreContainer, score);
+  
+  // Main game loop
+  for (var i = 0, question, answer, max = quiz.questions.length; i < max; i += 1) {
     question = quiz.question + quiz.questions[i].question;
     answer = ask(question);
     check(answer);
   }
   gameOver();
-  
-  function ask(question) {
-    return prompt(question);
-  }
-
-  function check(answer) {
-    if (answer === quiz.questions[i].answer) {
-      alert("Correct!");
-      score += 1;
-    } else {
-      alert("Incorrect.");
-    }
-  }
-
-  function gameOver() {
-    alert("You scored a " + score + " out of " + max + "!");
-  }
 }
