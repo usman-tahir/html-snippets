@@ -20,9 +20,19 @@ var quiz = {
 /*
   DOM References
 */
-var $questionContainer = document.getElementById("question"),
-  $scoreContainer = document.getElementById("score"),
-  $feedbackContainer = document.getElementById("feedback");
+var $questionContainer = document.getElementById("question");
+var $scoreContainer = document.getElementById("score");
+var $feedbackContainer = document.getElementById("feedback");
+
+function update(element, content, appliedClass) {
+  var p = element.firstChild || document.createElement("p");
+  console.log(p);
+  p.textContent = content;
+  element.appendChild(p);
+  if (appliedClass) {
+    p.className = appliedClass;
+  }
+}
 
 // alert(quiz.description);
 play(quiz);
@@ -30,16 +40,15 @@ play(quiz);
 function play(quiz) {
   
   var score = 0;
+  update($scoreContainer, score);
   
-  function update(element, content, appliedClass) {
-    var p = element.firstChild || document.createElement("p");
-    console.log(p);
-    p.textContent = content;
-    element.appendChild(p);
-    if (appliedClass) {
-      p.className = appliedClass;
-    }
+  // Main game loop
+  for (var i = 0, question, answer, max = quiz.questions.length; i < max; i += 1) {
+    question = quiz.questions[i].question;
+    answer = ask(question);
+    check(answer);
   }
+  gameOver();
   
   function ask(question) {
     update($questionContainer, quiz.question + question);
@@ -60,14 +69,4 @@ function play(quiz) {
     // alert("You scored a " + score + " out of " + max + "!");
     update($questionContainer, "Game Over, you scored " + score + " points.");
   }
-  
-  update($scoreContainer, score);
-  
-  // Main game loop
-  for (var i = 0, question, answer, max = quiz.questions.length; i < max; i += 1) {
-    question = quiz.question + quiz.questions[i].question;
-    answer = ask(question);
-    check(answer);
-  }
-  gameOver();
 }
