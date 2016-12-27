@@ -59,6 +59,8 @@ function play(quiz) {
   
   var score = 0,
     time = 20;
+  $timer.style.color = "green";
+  $timer.style.background = "gray";
   update($timer, time);
   update($scoreContainer, score);
   
@@ -107,6 +109,16 @@ function play(quiz) {
   function countDown () {
     // Decrease time by 1
     time -= 1;
+    
+    if (time > 15) {
+      $timer.style.color = "green";
+    } else if (time >= 10) {
+      $timer.style.color = "orange";
+    } else if (time >= 5) {
+      $timer.style.color = "yellow";
+    } else {
+      $timer.style.color = "red";
+    }
     
     // Update the time
     update($timer, time);
