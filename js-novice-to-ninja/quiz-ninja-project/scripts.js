@@ -23,6 +23,7 @@ var quiz = {
 var $questionContainer = document.getElementById("question");
 var $scoreContainer = document.getElementById("score");
 var $feedbackContainer = document.getElementById("feedback");
+var $start = document.getElementById("start");
 
 function update(element, content, appliedClass) {
   var p = element.firstChild || document.createElement("p");
@@ -34,8 +35,10 @@ function update(element, content, appliedClass) {
   }
 }
 
-// alert(quiz.description);
-play(quiz);
+// Quiz start button
+$start.addEventListener("click", function () {
+  play(quiz);
+}, false);
 
 function play(quiz) {
   
