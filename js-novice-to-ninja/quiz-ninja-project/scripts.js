@@ -57,18 +57,21 @@
     chooseQuestion();
 
     function chooseQuestion() {
+      console.log("chooseQuestion() invoked");
       var question = quiz.questions[i].question;
       ask(question);
     }
 
     function ask(question) {
+      console.log("ask() invoked");
       update($questionContainer, quiz.question + question);
       $form[0].value = "";
       $form[0].focus;
     }
 
     function check(answer) {
-      if (answer.toLowerCase() === quiz.questions[i].answer.toLowerCase()) {
+      console.log("check() invoked");
+      if (answer.toLowerCase() === quiz.questions[i]["answer"].toLowerCase()) {
         update($feedbackContainer, "Correct!", "correct");
         score += 1;
         update($scoreContainer, score);
@@ -86,6 +89,7 @@
     }
 
     function countDown () {
+      console.log("countDown() invoked");
       // Decrease time by 1
       time -= 1;
 
@@ -108,6 +112,7 @@
     }
 
     function gameOver() {
+      console.log("gameOver() invoked");
       // alert("You scored a " + score + " out of " + max + "!");
       window.clearInterval(interval);
       update($questionContainer, "Game Over, you scored " + score + " points.");
