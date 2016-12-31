@@ -115,3 +115,13 @@ var words = ["apple", "banana", "cantaloupe"],
   filteredWords = words.filter(function(word) { return word.length >= 6});
 console.log(filteredWords);
 
+function wait(message, callback, seconds) {
+  setTimeout(callback, seconds * 1000);
+  console.log(message);
+}
+
+function terminate() {
+  console.log("Process terminated.");
+}
+
+wait("Processing...", terminate, 3);
