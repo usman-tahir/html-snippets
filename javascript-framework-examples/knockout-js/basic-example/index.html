@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Knockout JS Example</title>
+  </head>
+  <body>
+    <p>First name: <strong data-bind="text: firstName">todo</strong></p>
+    <p>Last name: <strong data-bind="text: lastName">todo</strong></p>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.1/knockout-min.js"></script>
+    <script>
+      function AppViewModel() {
+        this.firstName = "Usman";
+        this.lastName = "Tahir";
+      }
+      ko.applyBindings(new AppViewModel());
+    </script>
+  </body>
+</html>
