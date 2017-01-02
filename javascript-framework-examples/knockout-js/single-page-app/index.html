@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Basic SPA Example</title>
+    <style>
+      .folders {
+        width: 480px;
+        height: 50px;
+        margin: 0 auto;
+        background-color: lightgray;
+      }
+      li {
+        width: 24%;
+        height: inherit;
+        display: inline-block;
+        text-align: center;
+      }
+      .selected {
+        background-color: darkgray;
+      }
+    </style>
+  </head>
+  <body>
+    <ul class="folders" data-bind="foreach: folders">
+      <li data-bind="text: $data, css: {selected: $data == $root.chosenFolderId()}, click: $root.goToFolder"></li>
+    </ul>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.1/knockout-min.js"></script>
+    <script>
+      function WebmailViewModel() {
+        var self = this;
+        self.folders = ["Inbox", "Archive", "Sent", "Spam"];
+        self.chosenFolderId = ko.observable();
+        self.goToFolder = function(folder) {
+          self.chosenFolderId(folder);
+        };
+      }
+
+      ko.applyBindings(new WebmailViewModel());
+    </script>
+  </body>
+</html>
