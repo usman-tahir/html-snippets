@@ -9,7 +9,28 @@
   animation-delay: 1s;
 }
 
+#circle {
+  width: 100px;
+  height: 100px;
+  border-radius: 50px;
+  background-color: red;
+  animation-name: circleShrink;
+  animation-duration: 1s;
+  animation-delay: 1s;
+}
+
 @keyframes squareFade {
   0% {opacity: 1}
   100% {opacity: 0}
+}
+
+@keyframes circleShrink {
+  0% {
+    width: 100px;
+    height: 100px;
+  }
+  100% {
+    width: 0;
+    height: 0;
+  }
 }
