@@ -1,0 +1,15 @@
+@charset "UTF-8";
+
+#square {
+  width: 100px;
+  height: 100px;
+  background-color: blue;
+  animation-name: squareFade;
+  animation-duration: 3s;
+  animation-delay: 1s;
+}
+
+@keyframes squareFade {
+  0% {opacity: 1}
+  100% {opacity: 0}
+}
