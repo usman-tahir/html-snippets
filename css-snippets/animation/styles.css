@@ -19,6 +19,13 @@
   animation-delay: 1s;
 }
 
+#transforming {
+  width: 200px;
+  height: 200px;
+  background-color: coral;
+  animation: squareToCircle 2s 1s infinite alternate;
+}
+
 @keyframes squareFade {
   0% {opacity: 1}
   100% {opacity: 0}
@@ -32,5 +39,33 @@
   100% {
     width: 0;
     height: 0;
+  }
+}
+
+@keyframes squareToCircle {
+  0% {
+    border-radius: 0 0 0 0;
+    background: coral;
+    transform: rotate(0deg);
+  }
+  25% {
+    border-radius: 50% 0 0 0;
+    background: darksalmon;
+    transform: rotate(45deg);
+  }
+  50% {
+    border-radius: 50% 50% 0 0;
+    background: indianred;
+    transform: rotate(90deg);
+  }
+  75% {
+    border-radius: 50% 50% 50% 0;
+    background: lightcoral;
+    transform: rotate(135deg);
+  }
+  100% {
+    border-radius: 50%;
+    background: darksalmon;
+    transform: rotate(180deg);
   }
 }
