@@ -36,7 +36,7 @@
 
   function getNumberOfSpaces(input) {
     var characters = input.split(""),
-      pattern = /[\s\w+]/,
+      pattern = /[\s+]/,
       count = 0,
       i;
 
