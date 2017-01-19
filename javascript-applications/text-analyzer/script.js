@@ -48,14 +48,43 @@
     return "Number of spaces: " + count;
   }
 
+  function getCharacterCount(input) {
+    var characters = {},
+      elements = input.split(""),
+      output = "<br><br><table border='1'><tr><td>Character</td><td>Count</td></tr>",
+      i;
+
+    for (i = 0; i < elements.length; i += 1) {
+      if (characters[elements[i]]) {
+        characters[elements[i]] += 1;
+      } else {
+        characters[elements[i]] = 1;
+      }
+    }
+
+    for (i = 0; i < Object.keys(characters).length; i += 1) {
+      var key = Object.keys(characters)[i],
+        value = Object.values(characters)[i];
+
+      if (key === " ") {
+        key = "space";
+      }
+      output += "<tr><td>" + key + "</td><td>" + value + "</td></tr>";
+    }
+    console.log(output);
+    return output + "</table>";
+  }
+
   function analysis() {
     var output = "",
       text = textToAnalyze.value,
       numberOfWords = getNumberOfWords(text),
       numberOfLetters = getNumberOfLetters(text),
-      numberOfSpaces = getNumberOfSpaces(text);
+      numberOfSpaces = getNumberOfSpaces(text),
+      atomicCharacterCount = getCharacterCount(text);
 
-    output += numberOfWords + "<br />" + numberOfLetters + "<br />" + numberOfSpaces;
+    output += numberOfWords + "<br />" + numberOfLetters + "<br />" + numberOfSpaces +
+      atomicCharacterCount;
     analysisOutput.innerHTML = output;
   }
   analyzeButton.addEventListener("click", analysis, false);
