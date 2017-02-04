@@ -7,10 +7,39 @@
     template: '#static-template'
   });
 
+  ContactManager.Contact = Backbone.Model.extend({});
+  ContactManager.ContactView = Marionette.ItemView.extend({
+    template: '#contact-template'
+  });
+
+  ContactManager.on('before:start', function () {
+    var RegionController = Marionette.LayoutView.extend({
+      el: '#app-container',
+      regions: {
+        main: '#main-region'
+      }
+    });
+    ContactManager.regions = new RegionController();
+  });
+
   ContactManager.on('start', function () {
+
+    /*
+      Sample contact
+    */
+    var usman = new ContactManager.Contact({
+      firstName: 'Usman',
+      lastName: 'Tahir'
+    });
+
+    var usmanView = new ContactManager.ContactView({
+      model: usman
+    });
+
     console.log('Contact Manager has started.');
     var staticView = new ContactManager.StaticView();
-    staticView.render();
+    // staticView.render();
+    ContactManager.regions.main.show(usmanView);
   });
 
   ContactManager.start();
