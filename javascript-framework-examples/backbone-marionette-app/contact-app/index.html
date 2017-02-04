@@ -16,12 +16,21 @@
       </div>
     </div>
 
-    <div class="container">
-      <p>
-        Here is static content on the webpage - You'll notice that it gets
-        replaced by the app as soon as the app starts.
-      </p>
+    <div id="app-container">
+      <div id="main-region" class="container">
+        <p>
+          Here is static content for the webpage. It will be replaced by the app
+          once the app has loaded.
+        </p>
+      </div>
     </div>
+
+    <!-- Templates -->
+    <script type="text/template" id="static-template">
+      <p>
+        This is the text that was rendered by the Marionette app.
+      </p>
+    </script>
 
     <script src="./assets/js/vendor/jquery.min.js"></script>
     <script src="./assets/js/vendor/json2.min.js"></script>
