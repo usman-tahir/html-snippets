@@ -36,15 +36,16 @@
   });
 
   ContactManager.ContactCollection = Backbone.Collection.extend({
-    model: ContactManager.Contact
+    model: ContactManager.Contact,
+    comparator: 'firstName'
   });
 
   ContactManager.on('start', function () {
 
     var contacts = new ContactManager.ContactCollection([
-      {firstName: 'Usman', lastName: 'Tahir', phoneNumber: '7034638027'},
-      {firstName: 'John', lastName: 'Doe', phoneNumber: '5555555555'},
-      {firstName: 'Jane', lastName: 'Doe', phoneNumber: '5555555556'},
+      {firstName: 'Andrew', lastName: 'A', phoneNumber: '5555555554'},
+      {firstName: 'Barbara', lastName: 'B', phoneNumber: '5555555555'},
+      {firstName: 'Charles', lastName: 'C', phoneNumber: '5555555556'},
     ]),
       contactsListView = new ContactManager.ContactsView({
         collection: contacts
