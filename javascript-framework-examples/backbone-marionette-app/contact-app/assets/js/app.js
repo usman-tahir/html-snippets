@@ -7,9 +7,24 @@
     template: '#static-template'
   });
 
-  ContactManager.Contact = Backbone.Model.extend({});
+  ContactManager.Contact = Backbone.Model.extend({
+    defaults: {
+      firstName: '',
+      lastName: '',
+      phoneNumber: 'none'
+    }
+  });
   ContactManager.ContactView = Marionette.ItemView.extend({
-    template: '#contact-template'
+    template: '#contact-template',
+
+    events: {
+      'click p': 'alertPhoneNumber'
+    },
+
+    // Basic event that logs the phoneNumber
+    alertPhoneNumber: function () {
+      console.log(this.model.escape('phoneNumber'));
+    }
   });
 
   ContactManager.on('before:start', function () {
@@ -29,7 +44,8 @@
     */
     var usman = new ContactManager.Contact({
       firstName: 'Usman',
-      lastName: 'Tahir'
+      lastName: 'Tahir',
+      phoneNumber: '(703) 463-8027'
     });
 
     var usmanView = new ContactManager.ContactView({
