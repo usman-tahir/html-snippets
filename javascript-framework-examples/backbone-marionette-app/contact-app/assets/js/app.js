@@ -14,48 +14,44 @@
       phoneNumber: 'none'
     }
   });
-  ContactManager.ContactView = Marionette.ItemView.extend({
-    template: '#contact-template',
 
-    events: {
-      'click p': 'alertPhoneNumber'
-    },
+  ContactManager.ContactItemView = Marionette.ItemView.extend({
+    tagName: 'li',
+    template: '#contact-list-item'
+  });
 
-    // Basic event that logs the phoneNumber
-    alertPhoneNumber: function () {
-      console.log(this.model.escape('phoneNumber'));
-    }
+  ContactManager.ContactsView = Marionette.CollectionView.extend({
+    tagName: 'ul',
+    childView: ContactManager.ContactItemView
   });
 
   ContactManager.on('before:start', function () {
-    var RegionController = Marionette.LayoutView.extend({
+    var RegionContainer = Marionette.LayoutView.extend({
       el: '#app-container',
       regions: {
         main: '#main-region'
       }
     });
-    ContactManager.regions = new RegionController();
+    ContactManager.regions = new RegionContainer();
+  });
+
+  ContactManager.ContactCollection = Backbone.Collection.extend({
+    model: ContactManager.Contact
   });
 
   ContactManager.on('start', function () {
 
-    /*
-      Sample contact
-    */
-    var usman = new ContactManager.Contact({
-      firstName: 'Usman',
-      lastName: 'Tahir',
-      phoneNumber: '(703) 463-8027'
-    });
+    var contacts = new ContactManager.ContactCollection([
+      {firstName: 'Usman', lastName: 'Tahir', phoneNumber: '7034638027'},
+      {firstName: 'John', lastName: 'Doe', phoneNumber: '5555555555'},
+      {firstName: 'Jane', lastName: 'Doe', phoneNumber: '5555555556'},
+    ]),
+      contactsListView = new ContactManager.ContactsView({
+        collection: contacts
+      });
 
-    var usmanView = new ContactManager.ContactView({
-      model: usman
-    });
-
+    ContactManager.regions.main.show(contactsListView);
     console.log('Contact Manager has started.');
-    var staticView = new ContactManager.StaticView();
-    // staticView.render();
-    ContactManager.regions.main.show(usmanView);
   });
 
   ContactManager.start();
