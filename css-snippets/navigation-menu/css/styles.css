@@ -69,3 +69,80 @@ body {
 	-webkit-box-shadow: 0 0 5px #9ddff5;
 	box-shadow: 0 0 5px #9ddff5;
 }
+
+/* Buttons */
+
+/* Green Button */
+#navigation .home {
+	background-position: 0 0;
+}
+
+#navigation .home:hover {
+	background-position: 0 -39px;
+}
+
+#navigation .home span {
+	background-color: #7da315;
+	color: #3d4f0c;
+	text-shadow: 1px 1px 0 #99bf31;
+}
+
+/* Blue Button */
+#navigation .about {
+	background-position: -38px 0;
+}
+
+#navigation .about:hover {
+	background-position: -38px -39px;
+}
+
+#navigation .about span {
+	background-color: #1e8bb4;
+	color: #223a44;
+	text-shadow: 1px 1px 0 #44a8d0;
+}
+
+/* Orange Button */
+#navigation .services {
+	background-position: -76px 0;
+}
+
+#navigation .services:hover {
+	background-position: -76px -39px;
+}
+
+#navigation .services span {
+	background-color: #c86c1f;
+	color: #5a3517;
+	text-shadow: 1px 1px 0 #d28344;
+}
+
+/* Yellow Button */
+#naviation .portfolio {
+	background-position: -114px 0;
+}
+
+#navigation .portfolio:hover {
+	background-position: -114px -39px;
+}
+
+#navigation .portfolio span {
+	background-color: #d0a525;
+	color: #604e18;
+	text-shadow: 1px 1px 0 #d8b54b;
+}
+
+/* Purple Button */
+#navigation .contact {
+	background-position: -152px 0;
+}
+
+#navigation .contact:hover {
+	background-position: -152px -39px;
+}
+
+#navigation .contact span {
+	background-color: #af1e83;
+	color: #460f35;
+	text-shadow: 1px 1px 0 #d244a6;
+}
