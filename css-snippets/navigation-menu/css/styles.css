@@ -24,3 +24,48 @@ body {
 	padding: 2px;
 	width: 40px;
 }
+
+#navigation span {
+	/* Container properties */
+	width: 0;
+	left: 38px;
+	padding: 0;
+	position: absolute;
+	overflow: hidden;
+
+	/* Text properties */
+	font-family: 'Myriad pro', Arial, Helvetica, sans-serif;
+	font-size: 18px;
+	font-weight: bold;
+	letter-spacing: 0.6px;
+	white-space: nowrap;
+	line-height: 39px;
+
+	/* CSS3 Transition */
+	-webkit-transition: 0.25s;
+}
+
+#navigation a {
+	/* Background sprites */
+	background: url('img/navigation.jpg') no-repeat;
+	height: 39px;
+	width: 38px;
+	display: block;
+	position: relative;
+}
+
+/* Hover styling */
+#navigation a:hover span {
+	width: auto;
+	padding: 0 20px;
+	overflow: visible;
+}
+
+#navigation a:hover {
+	text-decoration: none;
+
+	/* CSS outer-glow implementation with the box-shadow property */
+	-moz-box-shadow: 0 0 5px #9ddff5;
+	-webkit-box-shadow: 0 0 5px #9ddff5;
+	box-shadow: 0 0 5px #9ddff5;
+}
