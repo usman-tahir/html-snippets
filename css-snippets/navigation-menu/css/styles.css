@@ -43,11 +43,13 @@ body {
 
 	/* CSS3 Transition */
 	-webkit-transition: 0.25s;
+	-moz-transition: 0.25s;
+	transition: 0.25s;
 }
 
 #navigation a {
 	/* Background sprites */
-	background: url('img/navigation.jpg') no-repeat;
+	background: url('./img/navigation.jpg') no-repeat;
 	height: 39px;
 	width: 38px;
 	display: block;
