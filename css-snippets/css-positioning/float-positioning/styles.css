@@ -1,0 +1,20 @@
+@charset "utf-8";
+
+.box-set,
+.box {
+  border-radius: 6px;
+}
+
+.box-set {
+  background: #eaeaed;
+}
+
+.box {
+  width: 29.615861214%;
+  background: #2db34a;
+  float: left;
+  margin: 1.858736059%;
+  padding: 20px 0;
+  text-align: center;
+  color: #fff;
+}
